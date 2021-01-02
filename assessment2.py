@@ -10,8 +10,8 @@ import sys
 sense = SenseHat()
 
 #Creating strings to access shell scripts using os later in the code
-cmd1 = './eddy_start'
-cmd2 = './beacon_stop'
+cmd1 = '/home/pi/assessment2/eddy_start'
+cmd2 = '/home/pi/assessment2/beacon_stop'
 
 #API from Met Eireann to get the current weather in Cork
 URL = 'https://prodapi.metweb.ie/weather/short/Cork'
