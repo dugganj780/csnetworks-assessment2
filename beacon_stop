@@ -1,5 +1,5 @@
 #!/bin/sh
-. ./eddy.conf
+. /home/pi/assessment2/eddy.conf
 echo "Disabling virtual Eddystone Beacon..."
 sudo hciconfig $BLUETOOTH_DEVICE noleadv
 echo "Complete"
