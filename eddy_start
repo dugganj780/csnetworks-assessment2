@@ -1,5 +1,5 @@
 #!/bin/sh
-. ./eddy.conf
+. /home/pi/assessment2/eddy.conf
 
 sudo hciconfig $BLUETOOTH_DEVICE up
 sudo hciconfig $BLUETOOTH_DEVICE noleadv
