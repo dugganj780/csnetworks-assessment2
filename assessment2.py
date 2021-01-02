@@ -26,9 +26,11 @@ windSpeed = float(data['windSpeed'])
 rainfall = float(data['rainfall'])
 
 #Prints the variables to the console
-print("Temperature: "+ str(temperature))
-print("Rainfall: "+ str(rainfall))
-print("Wind Speed: "+ str(windSpeed))
+print("=========Weather Status=========")
+print("Temperature: "+ str(temperature)+" Degrees Celsius")
+print("Rainfall: "+ str(rainfall)+ "mm")
+print("Wind Speed: "+ str(windSpeed)+ "km/h")
+print("================================")
 
 #API from ThingSpeak that is used to access the last 2 responses from the user
 lastResponses = 'https://api.thingspeak.com/channels/1229784/fields/1.json?api_key=2AKCZ0ZYBBLVQPJM&results=2'
@@ -103,9 +105,11 @@ while True:
       if event.direction == "up":
         ans = 1
         last3ans = ans + drove
-        print(last3ans)
+        print("================================")
+        print("I see you are driving today. Goodbye!")
+        print("Days driven in a row: "+ str(last3ans))
+        print("================================")
         conn = urlopen(baseURL + '&field1=%s' % (ans) + '&field2=%s' % (rainfall) + '&field3=%s' % (temperature) + '&field4=%s' % (windSpeed) + '&field5=%s' % (last3ans))
-        print(conn.read())
         conn.close()
         sense.clear()
         os.system(cmd2)
@@ -117,9 +121,11 @@ while True:
       elif event.direction == "down":
         ans = 0
         last3ans = ans * drove
-        print(last3ans)
+        print("================================")
+        print("I see you are walking today. Fair play! Goodbye!")
+        print("Days driven in a row: "+ str(last3ans))
+        print("================================")
         conn = urlopen(baseURL + '&field1=%s' % (ans) + '&field2=%s' % (rainfall) + '&field3=%s' % (temperature) + '&field4=%s' % (windSpeed) + '&field5=%s' % (last3ans))
-        print(conn.read())
         conn.close()
         sense.clear()
         os.system(cmd2)
@@ -127,4 +133,7 @@ while True:
       else:
         sense.clear()
         os.system(cmd2)
+        print("================================")
+        print("answer not given")
+        print("================================")
         sys.exit()
